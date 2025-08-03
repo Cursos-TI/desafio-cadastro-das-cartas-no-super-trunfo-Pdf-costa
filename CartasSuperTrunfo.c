@@ -8,6 +8,8 @@ int main() {
     float area, area2; //área total da cidade
     float pib, pib2; //PIB da cidade
     int ptur, ptur2; //pontos turísticos
+    float denpop1, denpop2; // Densidade populacional
+    float ppc1, ppc2; // PIB per Capita
 
     //Início do preenchimento do usuário
     printf("Insira o estado da primeira carta (A-H): \n");
@@ -25,11 +27,15 @@ int main() {
     printf("Insira a área da cidade (em Km²): \n"); // Não utilizar "," na hora de preencher
     scanf("%f", &area);
 
-    printf("Insira o PIB da cidade: \n");
+    printf("Insira o PIB da cidade (em bilhões de reais): \n"); //MULTIPLICANDO POR 1BI PARA FACILITAR PREENCHIMENTO DO USUÁRIO
     scanf("%f", &pib);
+    pib = pib * 1000000000;
 
     printf("Insira o número de pontos turísticos da cidade: \n");
     scanf("%d", &ptur);
+
+    denpop1 = (float)pop / area; //VARIÁVEL DA DENSIDADE POPULACIONAL
+    ppc1 = (float)pib / pop; // VARIÁVEL DO PIB PER CAPITA
     //Fim da primeira carta
     
     //Início da segunda carta
@@ -48,11 +54,16 @@ int main() {
     printf("Insira a área da cidade (em Km²): \n"); // Não utilizar "," na hora de preencher
     scanf("%f", &area2);
 
-    printf("Insira o PIB da cidade: \n");
+    printf("Insira o PIB da cidade (em bilhões de reais): \n");
     scanf("%f", &pib2);
+    pib2 = pib2 * 1000000000;
 
     printf("Insira o número de pontos turísticos da cidade: \n");
     scanf("%d", &ptur2);
+
+    denpop2 = (float)pop2 / area2;
+    ppc2 = (float)pib2 / pop2;
+    //fim da carta 2
 
     
     printf("\n Carta 1 \n"); // espaço antes para separar da inserção de dados
@@ -61,8 +72,12 @@ int main() {
     printf("Nome da cidade: %s \n", nome);
     printf("População: %d \n", pop);
     printf("Área: %.2f KM²\n", area); // Não utilizar "," na hora de preencher
-    printf("PIB: R$ %.2f bi \n", pib);
-    printf("Número de Pontos Turísticos: %d \n\n", ptur);
+    printf("PIB: R$ %.2f bi \n", pib / 1000000000); // DIVIDIDO POR 1 BI PARA MELHOR EXIBIÇÃO E COMPREENSÃO DO USUÁRIO
+    printf("Número de Pontos Turísticos: %d \n", ptur);
+    printf("Densidade populacional: %.2f hab/km² \n", denpop1);
+    printf("PIB per Capita: %.2f reais \n\n", ppc1); // ESPAÇO DUPLO PARA MELHOR ESTÉTICA
+
+
 
     printf("Carta 2 \n");
     printf("Estado: %c \n", estado2);
@@ -70,9 +85,10 @@ int main() {
     printf("Nome da cidade: %s \n", nome2);
     printf("População: %d \n", pop2);
     printf("Área: %.2f KM²\n", area2); // Não utilizar "," na hora de preencher
-    printf("PIB: R$ %.2f bi \n", pib2);
+    printf("PIB: R$ %.2f bi\n", pib2 / 1000000000);
     printf("Número de Pontos Turísticos: %d \n", ptur2);
-
+    printf("Densidade populacional: %.2f hab/km² \n", denpop2);
+    printf("PIB per Capita: %.2f reais \n\n", ppc2);
 
     return 0;
 }
